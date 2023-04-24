@@ -1,0 +1,115 @@
+{{!-- Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+<div>
+
+    <main>
+        <section>
+            {{> title big=true data='Biography'}}
+            <h2>{{name}}</h2>
+            <p>Birthdate: <b>{{birthdate}}</b></p>
+            <p>Birthplace: <b>{{birthplace}}</b></p>
+            <p>Deathdate: <b>{{deathdate}}</b></p>
+            <p>Deathplace: <b>{{deathplace}}</b></p>
+            <p>Nationality: <b>{{nationality}}</b></p>
+            <p>Occupation: <b>{{occupation}}</b></p>
+            {{> title data='Known for'}}
+            {{#each known_for}}
+            <ul>
+                <li>{{this}}</li>
+            </ul>
+            {{/each}}
+        </section>
+
+        <section>
+            {{> title data='Education'}}
+            {{#each education}}
+            <p>Degree: <b>{{degree}}</b></p>
+            <p>Field: <b>{{field}}</b></p>
+            <p>Institution: <b>{{institution}}</b></p>
+            <p>Year: <b>{{year}}</b></p>
+            {{/each}}
+        </section>
+
+        <section>
+            {{> title data='Notable publications'}}
+            {{#each notable_publications}}
+            <p>Title: <b>{{title}}</b></p>
+            <p>Publisher: <b>{{publisher}}</b></p>
+            <p>Year: <b>{{year}}</b></p>
+            {{/each}}
+        </section>
+
+        <section>
+            {{> title data='Partners'}}
+            {{#each partners}}
+            <p>Name: <b>{{name}}</b></p>
+            <p>Relationship: <b>{{relationship}}</b></p>
+            <p>Years: <b>{{years}}</b></p>
+            {{/each}}
+        </section>
+
+        <section>
+            {{> title data='Awards'}}
+            {{#each awards}}
+            <p>Title: <b>{{title}}</b></p>
+            <p>Description: <b>{{description}}</b></p>
+            <p>Year: <b>{{year}}</b></p>
+            {{/each}}
+        </section>
+
+        <section>
+            {{> title data='Influences | Influenced'}}
+            <p>Influences</p>
+            {{#each influences}}
+
+            <ul>
+                <li><b>{{this}}</b></li>
+            </ul>
+
+            {{/each}}
+
+            <p>Influenced</p>
+            {{#each influenced}}
+
+            <ul>
+                <li><b>{{this}}</b></li>
+            </ul>
+
+            {{/each}}
+        </section>
+
+        <section>
+            {{> title data='Quotes'}}
+            {{#each quotes}}
+            <p><q>{{this}}</q></p>
+            {{/each}}
+        </section>
+
+        <section>
+            {{> title data='Major discoveries'}}
+            {{#each major_discoveries}}
+            <p>Title: <b>{{title}}</b></p>
+            <p>Description: <b>{{description}}</b></p>
+            <p>Year: <b>{{year}}</b></p>
+            {{/each}}
+        </section>
+
+        <section>
+            {{> title data='Contributions'}}
+            {{#with contributions}}
+            <p>Title: <b>{{title}}</b></p>
+            <p>Description: <b>{{description}}</b></p>
+            <p>Year: <b>{{year}}</b></p>
+            <p>Field: <b>{{field}}</b></p>
+            {{/with}}
+        </section>
+    </main>
+
+</div>
+
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML
+--}}
