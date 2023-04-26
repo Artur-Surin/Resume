@@ -372,7 +372,6 @@ layout: 'person',
 router.get('/bio', function (req, res) {
   //             ↙ cюди вводимо назву файлу з сontainer
   res.render('bio', {
-    
     layout: 'bio',
 
     name: 'Albert Einstein',
@@ -688,6 +687,8 @@ layout:'web',
 })
 
 // ================================================================
+router.get('/car', function (req, res) {
+  // res.render генерує нам HTML сторінку
 router.get('/mac', function (req, res) {
   // res.render генерує нам HTML сторінку
 
@@ -776,7 +777,6 @@ router.get('/mac', function (req, res) {
   //                  ↑↑ сюди вводимо JSON дані
 })
 
-// ================================================================
 
 // ================================================================
 // Підключаємо роутер до бек-енду
