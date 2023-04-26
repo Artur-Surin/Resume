@@ -1,0 +1,135 @@
+{{!-- Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+<div>
+    <main>
+        <div>
+            <h1 class="text-danger">{{make}} {{model}} ({{year}})</h1>
+            <p class="text-light bg-dark">Color: {{color}}</p>
+        </div>
+        <nav>
+            <h2 class="text-info">Features interior</h2>
+            {{#with features.interior}}
+            <ul class="p-3 mb-2 bg-secondary text-white">
+                {{#with seats}}
+                <li>
+                    Seats: {{material}} {{color}} {{#if heated}}heated{{/if}}
+                    {{#if ventilated}}ventilated{{/if}}
+                </li>
+                {{/with}}
+
+                {{#with dashboard}}
+                <li>
+                    Dashboard: {{material}} {{color}} {{display.type}}
+                    {{display.size}} {{display.resolution}}
+                    {{#if display.touchscreen}}touchscreen{{/if}}
+                </li>
+                {{/with}}
+
+                {{#with audio}}
+                <li>
+                    Audio: {{system}} {{speakers}} {{#if subwoofer}}subwoofer{{/if}}
+                    {{#if bluetooth}}bluetooth{{/if}} {{#if USB}}USB{{/if}}
+                </li>
+                {{/with}}
+            </ul>
+            {{/with}}
+
+            <h2 class="text-info">Features exterior</h2>
+            {{#with features.exterior}}
+            <ul class="p-3 mb-2 bg-primary text-white">
+                {{#with wheels}}
+                <li>
+                    Wheels: {{size}} {{color}} {{type}}
+                </li>
+                {{/with}}
+
+                {{#with headlights}}
+                <li>
+                    Headlights: {{type}} {{brightness}} {{#if automatic}}automatic{{/if}}
+                </li>
+                {{/with}}
+
+                {{#with sunroof}}
+                <li>
+                    Sunroof: {{type}} {{size}} {{#if automatic}}automatic{{/if}}
+                </li>
+                {{/with}}
+            </ul>
+            {{/with}}
+
+            <h2 class="text-info">Features safety</h2>
+            {{#with features.safety}}
+            <ul class="p-3 mb-2 bg-success text-black">
+                {{#with airbags}}
+                <li>
+                    Airbags: front({{front}}) side({{side}}) knee({{knee}}) rear({{rear}})
+                </li>
+                {{/with}}
+
+                {{#with assistance}}
+                <li>
+                    Assistance:
+                    <ul>
+                        <li>{{#if blind_spot_monitoring}}blind spot monitoring{{/if}}</li>
+                        <li>{{#if rear_cross_traffic_alert}}rear cross traffic alert{{/if}}</li>
+                        <li>{{#if lane_departure_warning}}lane departure warning{{/if}}</li>
+                        <li>{{#if adaptive_cruise_control}}adaptive cruise control{{/if}}</li>
+                        <li>{{#if collision_warning}}collision warning{{/if}}</li>
+                    </ul>
+                </li>
+                {{/with}}
+            </ul>
+            {{/with}}
+
+            <h2 class="text-info">Engine</h2>
+            {{#with engine}}
+            <ul class="p-3 mb-2 bg-danger text-white">
+                <li>Engine: {{type}}</li>
+                <li>Displacement: {{displacement}}L</li>
+                <li>Horsepower: {{horsepower}}HP</li>
+                <li>Torque: {{torque}}N⋅m</li>
+                <li>Transmission:
+                    <ul>
+                        <li>Type: {{transmission.type}}</li>
+                        <li>Gears: {{transmission.gears}}</li>
+                    </ul>
+                </li>
+            </ul>
+            {{/with}}
+
+            <h2 class="text-info">Fuel economy</h2>
+            {{#with fuel_economy}}
+            <ul class="p-3 mb-2 bg-warning text-dark">
+                <li>City: {{city}}</li>
+                <li>Highway: {{highway}}</li>
+                <li>Combined: {{combined}}</li>
+            </ul>
+            {{/with}}
+
+            <h2 class="text-info">Price</h2>
+            {{#with price}}
+            <ul class="p-3 mb-2 bg-info text-white">
+                <li>Base: {{base}}</li>
+                <li>Destination: {{destination}}</li>
+                <li>Options:
+                    <ul>
+                        <li>Navigation: {{options.navigation}}</li>
+                        <li>Moonroof: {{options.moonroof}}</li>
+                        <li>Premium paint: {{options.premium_paint}}</li>
+                    </ul>
+                <li>
+                    <p class="text-warning">Total: {{total}}</p>
+                </li>
+                </li>
+            </ul>
+            {{/with}}
+        </nav>
+    </main>
+</div>
+
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML
+--}}
