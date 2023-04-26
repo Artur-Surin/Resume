@@ -1,0 +1,70 @@
+<div>
+    <main>
+        {{#with heading}}
+        <div class="card w-70">
+            <div class="card w-70 m-3 p-3">
+                {{#with main}}
+                <h1 class="card-title">{{title}}</h1>
+                <p class="card-text">{{text}}</p>
+                <button class="btn btn-primary w-25">{{button_text.solid}}</button><br>
+                <button class="btn btn-outline-primary w-50">{{button_text.outline}}</button>
+                {{/with}}
+            </div>
+
+            <div class="card w-70 m-3 p-3">
+                {{#with second}}
+                <h2 class="card-title">{{title}}</h2>
+                <p class="card-text">{{text}}</p>
+                <button class="btn btn-secondary w-25 btn-lg">{{button_text.solid}}</button><br>
+                <button class="btn btn-outline-secondary w-25 btn-lg">{{button_text.outline}}</button>
+                {{/with}}
+            </div>
+
+            <div class="card w-70 m-3 p-3">
+                {{#with subblock}}
+                <h3 class="card-title">{{title}}</h3>
+                <p class="card-text">{{text}}</p>
+                <button class="btn btn-dark btn-sm w-25">{{button_text.solid}}</button><br>
+                <button class="btn btn-outline-dark btn-sm w-25">{{button_text.outline}}</button>
+                {{/with}}
+            </div>
+        </div>
+        {{/with}}
+
+        {{#with nested_display}}
+        <div class="card w-70 mt-3 p-3">
+            <div class="display-1">{{title}}</div>
+            {{#with children_display}}
+            <div class="card w-70 m-3 p-3">
+                <p class="display-4">{{title}}</p>
+                <p>{{text}}</p>
+                <div>
+                    <button type="button" class="btn btn-outline-warning w-25">{{button.text}}</button>
+                </div>
+            </div>
+            {{/with}}
+            <h6>{{header_text}}</h6>
+            <div>
+                <button type="button" class="btn btn-info btn-sm">{{button.text}}</button>
+            </div>
+        </div>
+        {{/with}}
+
+
+        {{#with paragraph}}
+        <div class="card w-70 mt-3 p-3">
+            <p class="display-3">About modules</p>
+            <p class="display-6">Modules with import/export statements</p>
+            <a href="https://google.com">Open link page</a>
+            <div class="card w-35 m-3 p-3">
+                <ul>
+                    {{#each list_name}}
+                    <li>{{> link noLine=true blank=true href=url }}</li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+
+        {{/with}}
+    </main>
+</div>
