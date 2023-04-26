@@ -1,0 +1,75 @@
+{{!-- Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"--}}
+
+<div>
+    <main>
+        <div class="card" style="width: 18rem;">
+            <div class="text-bg-dark p-3">
+                <h1 class="card-title">{{name}}</h1>
+                <p>{{category}}</p>
+                <p>{{description}}</p>
+                <button type="button" class="btn btn-warning">Price: ${{price}}</button>
+            </div>
+        </div>
+
+        <h2>Features:</h2>
+        {{#with features}}
+        <ul class="text-bg-danger p-3">
+            {{#with processor}}
+            <li>Processor: {{brand}} {{model}} ({{speed}}
+                {{cores}}-core, {{cache}} cache)</li>
+            {{/with}}
+
+            {{#with memory}}
+            <li>Memory: {{size}} {{type}} {{speed}}</li>
+            {{/with}}
+
+            <li>Storage: {{storage.size}} {{storage.type}}</li>
+
+            {{#with display}}
+            <li>Display: {{size}} {{technology}} ({{resolution}},
+                {{color_space}}, {{brightness}}, {{refresh_rate}})
+            </li>
+            {{/with}}
+
+            {{#with graphics}}
+            <li>Graphics: {{brand}} {{model}} ({{memory}})</li>
+            {{/with}}
+
+            <li>Ports:
+                <ul>
+                    {{#each ports}}
+                    <li>{{this.type}} x {{this.count}}
+                        {{#if this.features}}
+                        <ul>
+                            {{#each this.features}}
+                            <li>{{this}}</li>
+                            {{/each}}
+                        </ul>
+                        {{/if}}
+                    </li>
+                    {{/each}}
+                </ul>
+            </li>
+            <li>Battery: {{battery.type}} {{battery.capacity}} ({{battery.life}})</li>
+            <li>Weight: {{weight}}</li>
+
+            {{#with dimensions}}
+            <li>Dimensions: {{height}} x {{width}} x {{depth}}</li>
+            {{/with}}
+
+            <li>Operating System: {{operating_system}}</li>
+        </ul>
+
+        <h2>Accessories:</h2>
+        <ul class="list-group">
+            {{#each accessories}}
+            <li class="list-group-item list-group-item-primary">{{this.name}} - ${{this.price}}</li>
+            {{/each}}
+        </ul>
+        {{/with}}
+    </main>
+</div>
+
+{{!-- Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML--}}
