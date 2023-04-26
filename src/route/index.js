@@ -687,7 +687,6 @@ layout:'web',
 })
 
 // ================================================================
-router.get('/car', function (req, res) {
   // res.render генерує нам HTML сторінку
 router.get('/mac', function (req, res) {
   // res.render генерує нам HTML сторінку
