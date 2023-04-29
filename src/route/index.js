@@ -50,7 +50,7 @@ router.get('/', function (req, res) {
 router.get('/summary', function (req, res) {
   //             ↙ cюди вводимо назву файлу з сontainer
   res.render('summary', {
-    // ↙ сюди вводимо JSON дані
+    layout: "basic",
 
     page: {
       title: 'Resume | Summary',
@@ -262,7 +262,7 @@ router.get('/work', function (req, res) {
 router.get('/person', function (req, res) {
   //             ↙ cюди вводимо назву файлу з сontainer
   res.render('person', {
-layout: 'person',
+layout: 'basic',
 
     person: {
       name: 'Emma Johnson',
@@ -1236,9 +1236,7 @@ router.get('/task22', function (req, res) {
 // ================================================================
 
 router.get('/task31', function (req, res) {
-  // res.render генерує нам HTML сторінку
-
-  //            ↙ cюди вводимо назву файлу з сontainer
+ 
   res.render('task31', {
     layout: "basic",
 
@@ -1487,7 +1485,7 @@ router.get('/task31', function (req, res) {
       ],
     },
   })
-  //                  ↑↑ сюди вводимо JSON дані
+  //                 
 })
 
 // ================================================================
