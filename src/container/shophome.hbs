@@ -1,0 +1,125 @@
+<body>
+    <header>
+        <div class="border d-flex">
+            {{#each navigation.links}}
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link{{#if @first}} active{{/if}}{{#if @last}} disabled{{/if}}" aria-current="page"
+                        target="_blank" href="{{this.href}}">{{this.text}}</a>
+                </li>
+            </ul>
+            {{/each}}
+        </div>
+
+        <div class="mt-3">
+            {{#with newsBlock}}
+            <h2 class="text-center">{{title}}</h2>
+            <div class="row">
+                {{#each cards}}
+                <div class="col-sm-4 col-md-4 col-lg-3">
+                    <div class="card text-bg-dark mb-3">
+                        <div class="card-header">{{title}}
+                            {{#if isTop}}
+                            <span class="badge bg-danger">TOП</span>
+                            {{/if}}
+                            {{#if isNew}}
+                            <span class="badge bg-success">НОВА</span>
+                            {{/if}}
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">{{description}}</p>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+            {{/with}}
+        </div>
+    </header>
+    <hr>
+
+    <main>
+
+        <div class="goods-block">
+            {{#if goodsBlock}}
+            <div class="d-flex">
+                {{#each goodsBlock.tabs}}
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link{{#if isActive}} active{{/if}}{{#if isDisabled}} disabled{{/if}}"
+                            aria-current="page" href="{{this.href}}">{{this.text}}</a>
+                    </li>
+                </ul>
+                {{/each}}
+            </div>
+            {{/if}}
+        </div>
+
+        <div class="mt-3">
+            {{#with goodsBlock}}
+            <h2 class="text-center">{{title}}</h2>
+            <div class="row">
+                {{#each cards}}
+                <div class="col-sm-4 col-md-4 col-lg-4">
+                    <div class="card">
+                        <img src="..." class="card-img-top" alt="{{title}}">
+                        <div class="card-body">
+                            <h6 class="card-title">{{title}} {{#if isHot}}
+                                <span class="badge bg-warning">HOT</span>
+                                {{/if}}
+                                {{#if isNew}}
+                                <span class="badge bg-primary">НОВА</span>
+                                {{/if}}
+                            </h6>
+                            <p class="card-text">{{description}}</p>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+            {{/with}}
+        </div>
+        <hr>
+
+        <div class="card text-bg-dark mt-5 mb-5">
+            {{#with subscribe}}
+            <div class="card-body">
+                <h2 class="card-title">{{header}}</h2>
+                <p class="card-text">{{description}}</p>
+                {{#each buttons}}
+                <a class="btn btn-primary mb-1" href="{{link}}" role="button">{{text}}</a> <br>
+                {{/each}}
+            </div>
+            {{/with}}
+        </div>
+        <hr>
+
+        <div class="card text-bg-success mt-5 mb-5 text-center">
+            {{#with service}}
+            <div class="card-body">
+                <h2 class="card-title">{{title}}</h2>
+                <p class="card-text">{{description}}</p>
+                {{#each buttons}}
+                <a class="btn btn-primary mb-1" href="{{link}}" role="button">{{text}}</a> <br>
+                {{/each}}
+            </div>
+            {{/with}}
+        </div>
+    </main>
+    <hr>
+
+    <footer>
+        <div class="d-flex">
+            {{#each this.footer}}
+            <ul class="nav flex-column">
+                {{#each this}}
+                <li class="nav-item text-nowrap">
+                    <a class="nav-link{{#if @first}} active{{/if}}{{#if @last}} disabled{{/if}}" aria-current="page"
+                        target="_blank" href="{{link}}">{{text}}</a>
+                </li>
+                {{/each}}
+            </ul>
+            {{/each}}
+        </div>
+    </footer>
+</body>
