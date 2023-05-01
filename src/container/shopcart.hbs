@@ -1,0 +1,101 @@
+<body>
+    <header>
+        <div class="d-flex">
+            {{#each navigation.links}}
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link{{#if @first}} active{{/if}}{{#if @last}} disabled{{/if}}" aria-current="page"
+                        target="_blank" href="{{this.href}}">{{this.text}}</a>
+                </li>
+            </ul>
+            {{/each}}
+        </div>
+    </header>
+    <hr>
+
+    <main>
+        <div>
+            {{#with header}}
+            <h2 class="title">{{title}}</h2>
+            <a href="{{button.link}}" class="btn btn-outline-secondary" role="button"
+                aria-disabled="true">{{button.text}}</a>
+            {{/with}}
+        </div>
+        <hr>
+        {{> cartGoodsItem}}
+        <hr>
+
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-8">
+                    {{#with total}}
+                    <h3 class="title">{{title}}</h3>
+                    <p class="text display-5"><b>{{amount}}</b></p>
+                    <p class="text">{{delivery}}</p>
+                    <div class="d-flex flex-column gap-2 col-md-4">
+                        {{#each buttons}}
+                        <a href="{{link}}"
+                            class="btn {{#if isOutline}} btn-outline-success{{/if}}{{#if isSuccess}} btn-success{{/if}}"
+                            role="button" aria-disabled="true">{{text}}</a>
+                        {{/each}}
+                    </div>
+                    {{/with}}
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <div class="row mb-5 mt-5">
+            {{#with goodsOtherBlock}}
+            <h2 class="text-center">{{title}}</h2>
+            {{#each cards}}
+            <div class="col-sm-4 col-md-4">
+                <div class="card">
+                    <img src="{{image}}" class="card-img-top" alt="{{title}}">
+                    <div class="card-body">
+                        <p><b>{{title}}</b>
+                            {{#if isHot}}
+                            <span class="badge bg-warning">TOП</span>
+                            {{/if}}
+                            {{#if idNew}}
+                            <span class="badge bg-primary">НОВА</span>
+                            {{/if}}
+                        </p>
+                        <p class="card-text">{{description}}</p>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+            {{/with}}
+        </div>
+        <hr>
+
+        <div class="card text-bg-dark mt-5 mb-5">
+            {{#with subscribe}}
+            <div class="card-body">
+                <h2 class="card-title">{{header}}</h2>
+                <p class="card-text">{{description}}</p>
+                {{#each buttons}}
+                <a class="btn btn-primary mb-2" href="{{link}}" role="button">{{text}}</a> <br>
+                {{/each}}
+            </div>
+            {{/with}}
+        </div>
+    </main>
+    <hr>
+
+    <footer>
+        <div class="d-flex">
+            {{#each this.footer}}
+            <ul class="nav flex-column">
+                {{#each this}}
+                <li class="nav-item text-nowrap">
+                    <a class="nav-link{{#if @first}} active{{/if}}{{#if @last}} disabled{{/if}}" aria-current="page"
+                        target="_blank" href="{{link}}">{{text}}</a>
+                </li>
+                {{/each}}
+            </ul>
+            {{/each}}
+        </div>
+    </footer>
+</body>
