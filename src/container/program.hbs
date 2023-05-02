@@ -1,0 +1,47 @@
+{{!-- Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+
+<div>
+    {{#with program}}
+    <h1>{{excursion.name}}</h1>
+    <p>Date: {{excursion.date}}</p>
+    <h2>Program:</h2>
+    {{#each excursion.program}}
+    <h3>{{this.name}}</h3>
+    <p>Type: {{this.type}}</p>
+    <p>Duration: {{this.duration}} hours</p>
+    {{#if this.details.museum}}
+    <h4>Visit {{this.details.museum.name}} museum</h4>
+    <p>Address: {{this.details.museum.location.address}}, {{this.details.museum.location.city}},
+        {{this.details.museum.location.country}}</p>
+    {{#each this.details.museum.exhibits}}
+    <h5>{{this.name}}</h5>
+    <p>Artist: {{#if this.artist}}{{this.artist}}{{else}}Unknown{{/if}}</p>
+    <p>Description: {{this.description}}</p>
+    {{#if this.audio_guide}}
+    <p>Audio guide available</p>
+    {{/if}}
+    {{/each}}
+    <p>Guide: <b>{{this.details.guide.name}}, {{this.details.guide.language}}, rating: {{this.details.guide.rating}}</b>
+    </p>
+    {{else if this.details.venue}}
+    <h4>Attend {{this.details.venue.name}} show</h4>
+    <p>Address: {{this.details.venue.location.address}}, {{this.details.venue.location.city}},
+        {{this.details.venue.location.country}}</p>
+    {{#each this.details.performers}}
+    <h5>{{this.name}}</h5>
+    <p>Type: {{this.type}}</p>
+    {{/each}}
+    <p>Guide: {{this.details.guide.name}}, {{this.details.guide.language}}, rating: {{this.details.guide.rating}}</p>
+    {{/if}}
+    {{/each}}
+    {{/with}}
+</div>
+
+
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML
+--}}
