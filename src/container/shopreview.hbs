@@ -46,7 +46,7 @@
             <div class="col-md-3">
                 {{#with formBlock.goodsInfo}}
                 <div class="card">
-                    <img src="{{photo}}" class="card-img-top style=width: 50%;" alt="{{name}}">
+                    <img src="{{photo}}" class="card-img-top" alt="{{name}}">
                     <div class="card-body">
                         <h5 class="card-title">{{name}}</h5>
                     </div>
@@ -70,54 +70,7 @@
             </div>
         </div>
         <hr>
-        <div class="container">
-            {{#each reviewList}}
-            <div class="card mb-3">
-                <div class="card-header">
-                    <h5 class="card-title">{{title.userName}}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">{{title.caption}} - {{title.date}}</h6>
-                </div>
-                <div class="card-body">
-                    <h6 class="card-subtitle mb-2 text-muted">{{reviewBody.seller.title}}: {{reviewBody.seller.value}}
-                    </h6>
-                    <h6 class="card-subtitle mb-2 text-muted">{{reviewBody.rating.title}}: {{reviewBody.rating.value}}
-                    </h6>
-                    <p class="card-text">{{reviewBody.text.[0]}}</p>
-                    <ul>
-                        {{#each reviewBody.advantages.text}}
-                        <li>{{this}}</li>
-                        {{/each}}
-                    </ul>
-                    <p class="card-text">{{reviewBody.text.[1]}}</p>
-                    <ul>
-                        {{#each reviewBody.disadvantages.text}}
-                        <li>{{this}}</li>
-                        {{/each}}
-                    </ul>
-                    <div class="row mt-3">
-                        {{#each reviewBody.images}}
-                        <div class="col-sm-4">
-                            <img src="{{this}}" class="img-fluid" alt="Responsive image">
-                        </div>
-                        {{/each}}
-                    </div>
-                    <div class="card mt-3">
-                        <div class="card-header">
-                            <h6 class="card-subtitle mb-2 text-muted">{{reviewBody.coments.userName}}</h6>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                            {{#each reviewBody.coments}}
-                            <li class="list-group-item">
-                                <h6 class="card-subtitle mb-2 text-muted">{{date}}</h6>
-                                <p class="card-text">{{text}}</p>
-                            </li>
-                            {{/each}}
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            {{/each}}
-        </div>
+        {{> reviewItem}}
 
         <div class="card text-bg-success mt-5 mb-5 text-center">
             {{#with service}}
