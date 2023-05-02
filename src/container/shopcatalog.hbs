@@ -109,52 +109,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-9">
-                    <div class="row">
-                        {{#each goodsList}}
-                        <div class="col-md-6 pb-2">
-                            <div class="card">
-                                <img src="{{img}}" class="card-img-top" alt="Product image">
-                                <div class="card-body">
-                                    {{#if isHot}}
-                                    <span class="badge bg-danger mb-2">Гаряча пропозиція</span>
-                                    {{/if}}
-                                    {{#if isNew}}
-                                    <span class="badge bg-success mb-2">Новинка</span>
-                                    {{/if}}
-                                    {{#if isFast}}
-                                    <span class="badge bg-warning mb-2">Швидка доставка</span>
-                                    {{/if}}
-                                    {{#if isFree}}
-                                    <span class="badge bg-info mb-2">Безкоштовна доставка</span>
-                                    {{/if}}
-                                    <h5 class="card-title">{{name}}</h5>
-                                    <div class="card-text mb-3">
-                                        <span class="text-muted">{{review.amount}} {{review.text}}</span>
-                                    </div>
-                                    <h6 class="card-subtitle mb-2">{{price}}</h6>
-                                    <div class="card-text mb-3">
-                                        <span class="text-muted">{{delivery}}</span>
-                                    </div>
-                                    <div class="d-grid gap-2">
-                                        {{#each buttons}}
-                                        <a href="{{link}}"
-                                            class="btn {{#if isPrimary}}btn-primary{{else}}btn-secondary{{/if}}">
-                                            {{text}}
-                                        </a>
-                                        {{/each}}
-                                    </div>
-                                    <ul class="list-group list-group-flush">
-                                        {{#each characteristics}}
-                                        <li class="list-group-item">{{title}}: {{value}}</li>
-                                        {{/each}}
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        {{/each}}
-                    </div>
-                </div>
+                {{> catalogItem}}
             </div>
         </div>
 
@@ -173,7 +128,7 @@
     </main>
 
     <footer>
-        <div class=" d-flex">
+        <div class="d-flex justify-content-between">
             {{#each this.footer}}
             <ul class="nav flex-column">
                 {{#each this}}
