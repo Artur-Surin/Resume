@@ -1,0 +1,118 @@
+<body>
+    <header>
+        <div class="d-flex">
+            {{#each navigation.links}}
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link{{#if @first}} active{{/if}}{{#if @last}} disabled{{/if}}" aria-current="page"
+                        target="_blank" href="{{this.href}}">{{this.text}}</a>
+                </li>
+            </ul>
+            {{/each}}
+        </div>
+    </header>
+    <hr>
+
+    <main>
+        <div class="container">
+            <h1>{{header}}</h1>
+            {{#with purchase}}
+            <ul class="nav nav-tabs">
+                {{#each tabs}}
+                <li class="nav-item">
+                    {{#if @first}}
+                    <a class="nav-link active" href="#">{{this}}</a>
+                    {{else}}
+                    <a class="nav-link" href="#">{{this}}</a>
+                    {{/if}}
+                </li>
+                {{/each}}
+            </ul>
+
+            <div class="row mt-3">
+                <div class="col-md-7">
+                    <div class="input-group">
+                        <input type="text" class="form-control w-25" placeholder="{{actionBlock.input.placeholder}}">
+                        <div class="input-group-append">
+                            {{#each actionBlock.buttons}}
+                            <a href="{{link}}"
+                                class="btn {{#if isSuccess}}btn-success{{/if}} {{#if isOutline}}btn-outline-success{{/if}} {{#if isDanger}}btn-danger{{/if}}">{{text}}</a>
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        {{> purchaseItem}}
+        {{/with}}
+
+
+        <div class="container mt-5">
+            {{#with userInfo}}
+            <h2 class="title">{{title}}</h2>
+            <div class="card">
+                <div class="card-body">
+                    <h2>{{profileData.title}}</h2>
+                    {{#each profileData}}
+                    <div class="card">
+                        <div class="d-flex justify-content-between align-items-center">
+                            {{#each this}}
+                            <div class="card-body">
+                                <p class="card-text">{{this.title}}</p>
+                                <h5 class="card-title">{{this.value}}</h5>
+                            </div>
+                            {{/each}}
+                        </div>
+                        {{/each}}
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="input-group-append col-cd-12">
+                                    {{#each buttons}}
+                                    <a href="{{link}}"
+                                        class="btn mx-5 {{#if isPrimary}}btn-primary{{/if}} {{#if isSecondary}}btn-outline-secondary{{/if}} {{#if isDanger}}btn-danger{{/if}}">{{text}}</a>
+                                    {{/each}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/with}}
+        <hr>
+    </main>
+    <div class="container mt-3">
+        {{#each userInfocontacts}}
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="card-body">
+                <p class="card-text">{{this.title}}</p>
+                <h5 class="card-title">{{value}}</h5>
+                {{#with button}}
+                <a href="{{link}}" type="button" class="btn {{#if isPrimary}} btn-primary{{/if}}">{{text}}</a>
+                {{/with}}
+            </div>
+            <div class="card-body">
+                <p class="card-text">{{amount.title}}:</p>
+                <p class="card-text"><b>{{amount.value}}</b></p>
+            </div>
+        </div>
+        <hr>
+        {{/each}}
+    </div>
+    <hr>
+    <footer>
+        <div class="d-flex">
+            {{#each this.footer}}
+            <ul class="nav flex-column">
+                {{#each this}}
+                <li class="nav-item text-nowrap">
+                    <a class="nav-link{{#if @first}} active{{/if}}{{#if @last}} disabled{{/if}}" aria-current="page"
+                        target="_blank" href="{{link}}">{{text}}</a>
+                </li>
+                {{/each}}
+            </ul>
+            {{/each}}
+        </div>
+    </footer>
+</body>

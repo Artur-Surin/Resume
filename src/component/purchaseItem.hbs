@@ -1,0 +1,25 @@
+<div class="container mt-3">
+    {{#each itemList}}
+    <div class="d-flex justify-content-between align-items-center">
+        <div class="card-body">
+            <p class="card-text">{{number}}</p>
+            <h5 class="card-title">{{status}}</h5>
+        </div>
+        <div class="card-body">
+            <p class="card-text">{{amount.title}}:</p>
+            <p class="card-text"><b>{{amount.value}}</b></p>
+        </div>
+        <div class="card-body col-md-4">
+            {{#each images}}
+            <img src="{{this}}" alt="" class="img-fluid">
+            {{/each}}
+        </div>
+        <div class="input-group-append">
+            {{#with button}}
+            <a href="{{link}}" type="button" class="btn {{#if isPrimary}} btn-primary{{/if}}">{{text}}</a>
+            {{/with}}
+        </div>
+    </div>
+    <hr>
+    {{/each}}
+</div>
