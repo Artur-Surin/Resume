@@ -1,0 +1,149 @@
+<body>
+    <header>
+        <div class="d-flex">
+            {{#each navigation.links}}
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link{{#if @first}} active{{/if}}{{#if @last}} disabled{{/if}}" aria-current="page"
+                        target="_blank" href="{{this.href}}">{{this.text}}</a>
+                </li>
+            </ul>
+            {{/each}}
+        </div>
+    </header>
+    <hr>
+
+    <main>
+        <div class="row">
+            <div class="col-md-9">
+                {{#with formBlock}}
+                <h2>{{header}}</h2>
+                <p>{{rating.title}}: {{rating.value}}</p>
+                {{> tabsmenu}}
+                <hr>
+                <div class="card my-5">
+                    {{#with actionBlock.report}}
+                    <div class="card-body">
+                        <h5 class="card-title">{{title}}</h5>
+                        <a href="{{button.link}}" class="btn btn-secondary">{{button.text}}</a>
+                    </div>
+                    {{/with}}
+                </div>
+                <hr>
+                <div class="container-fluid my-5">
+                    <div class="card-body">
+                        {{#with feedbackBlock}}
+                        <h2 class="card-title">{{title}}</h2>
+                        {{#each buttons}}
+                        <a href="{{link}}"
+                            class="btn {{#if isWarning}} btn-warning{{/if}}{{#if isSuccess}} btn-success{{/if}}{{#if isDanger}} btn-danger{{/if}}">{{text}}</a>
+                        {{/each}}
+                        {{/with}}
+                    </div>
+                </div>
+                {{/with}}
+            </div>
+            <div class="col-md-3">
+                {{#with formBlock.goodsInfo}}
+                <div class="card">
+                    <img src="{{photo}}" class="card-img-top style=width: 50%;" alt="{{name}}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{name}}</h5>
+                    </div>
+                </div>
+                <div class="card mt-3 mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">{{price}}</h5>
+                        <p class="card-text">{{#if inMarket}} Є в наявності{{/if}}</p>
+                        {{#each buttons}}
+                        <a href="{{link}}" class="btn {{#if isPrimary}} btn-primary{{/if}}
+                            {{#if isSecondary}} btn-secondary{{/if}}">{{text}}</a>
+                        {{/each}}
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-text">{{seller.title}}: <b>{{seller.value}}</b></p>
+                    </div>
+                </div>
+                {{/with}}
+            </div>
+        </div>
+        <hr>
+        <div class="container">
+            {{#each reviewList}}
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h5 class="card-title">{{title.userName}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{title.caption}} - {{title.date}}</h6>
+                </div>
+                <div class="card-body">
+                    <h6 class="card-subtitle mb-2 text-muted">{{reviewBody.seller.title}}: {{reviewBody.seller.value}}
+                    </h6>
+                    <h6 class="card-subtitle mb-2 text-muted">{{reviewBody.rating.title}}: {{reviewBody.rating.value}}
+                    </h6>
+                    <p class="card-text">{{reviewBody.text.[0]}}</p>
+                    <ul>
+                        {{#each reviewBody.advantages.text}}
+                        <li>{{this}}</li>
+                        {{/each}}
+                    </ul>
+                    <p class="card-text">{{reviewBody.text.[1]}}</p>
+                    <ul>
+                        {{#each reviewBody.disadvantages.text}}
+                        <li>{{this}}</li>
+                        {{/each}}
+                    </ul>
+                    <div class="row mt-3">
+                        {{#each reviewBody.images}}
+                        <div class="col-sm-4">
+                            <img src="{{this}}" class="img-fluid" alt="Responsive image">
+                        </div>
+                        {{/each}}
+                    </div>
+                    <div class="card mt-3">
+                        <div class="card-header">
+                            <h6 class="card-subtitle mb-2 text-muted">{{reviewBody.coments.userName}}</h6>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            {{#each reviewBody.coments}}
+                            <li class="list-group-item">
+                                <h6 class="card-subtitle mb-2 text-muted">{{date}}</h6>
+                                <p class="card-text">{{text}}</p>
+                            </li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+
+        <div class="card text-bg-success mt-5 mb-5 text-center">
+            {{#with service}}
+            <div class="card-body">
+                <h2 class="card-title">{{title}}</h2>
+                <p class="card-text">{{description}}</p>
+                {{#each buttons}}
+                <a class="btn btn-primary mb-1" href="{{link}}" role="button">{{text}}</a> <br>
+                {{/each}}
+            </div>
+            {{/with}}
+        </div>
+    </main>
+    <hr>
+    <footer>
+        <div class=" d-flex">
+            {{#each this.footer}}
+            <ul class="nav flex-column">
+                {{#each this}}
+                <li class="nav-item text-nowrap">
+                    <a class="nav-link{{#if @first}} active{{/if}}{{#if @last}} disabled{{/if}}" aria-current="page"
+                        target="_blank" href="{{link}}">{{text}}</a>
+                </li>
+                {{/each}}
+            </ul>
+            {{/each}}
+        </div>
+    </footer>
+</body>

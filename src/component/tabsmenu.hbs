@@ -1,0 +1,12 @@
+<div class="container-fluid mt-2 mb-5">
+    <ul class="nav nav-tabs" role="tablist">
+        {{#each actionBlock.tabs}}
+        <li class="nav-item" role="presentation">
+            <button class="nav-link{{#if isActive}} active{{/if}}" data-bs-toggle="tab" data-bs-target="#tab{{@index}}"
+                type="button" role="tab" aria-controls="tab{{@index}}" aria-selected="{{isActive}}">
+                {{text}}
+            </button>
+        </li>
+        {{/each}}
+    </ul>
+</div>
