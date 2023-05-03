@@ -14,7 +14,7 @@ var header = {
    salary: '600$ в місяц',
    address: 'Ukraine, Kropyvnytskyi',
 };
-
+ 
 var footer = {
   social: {
     email: {
@@ -37,12 +37,118 @@ var footer = {
 // router.get Створює нам один ентпоїнт
 
 //           ↙ тут вводимо шлях (PATH) до сторінки
-router.get('/', function (req, res) {
+router.get('/index', function (req, res) {
   // res.render генерує нам HTML сторінку
 
   //            ↙ cюди вводимо назву файлу з сontainer
   res.render('index', {
-    layout: "index",
+  layout: 'index',
+  
+   header,
+
+   footer,
+
+   resume: {
+    title: 'Resume project',
+   },
+
+   name: {
+    title: 'Список сторінок',
+    text: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia non itaque, ullam ab quia quasi fugiat quidem
+    asperiores eveniet, tempora esse error, laborum minima dolorem corporis incidunt consectetur? Ratione, sit.
+    Libero tempore dolores ullam at temporibus? Aliquid laborum facere eligendi reprehenderit iusto quasi expedita
+    voluptatum officia! Nihil, asperiores maiores. Architecto hic optio voluptate ut saepe voluptatem nam labore
+    repellat? Maxime!`,
+   },
+
+   pages: {
+    href: [
+      {
+        url: '/summary',
+        name: 'Summary',
+      },
+      {
+        url: '/skills',
+        name: 'Skills',
+      },
+      {
+        url: '/work',
+        name: 'Work',
+      },
+      {
+        url: '/education',
+        name: 'Education',
+      },
+      {
+        url: '/person',
+        name: 'Person',
+      },
+      {
+        url: '/bio',
+        name: 'BIO',
+      },
+      {
+        url: '/program',
+        name: 'Program',
+      },
+      {
+        url: '/web',
+        name: 'Web',
+      },
+      {
+        url: '/facebook',
+        name: 'Facebook',
+      },
+      {
+        url: '/mac',
+        name: 'Mac',
+      },
+      {
+        url: '/js',
+        name: 'JS',
+      },
+      {
+        url: '/car',
+        name: 'Car',
+      },
+      {
+        url: '/task21',
+        name: 'Task21',
+      },
+      {
+        url: '/task22',
+        name: 'Task22',
+      },
+      {
+        url: '/task31',
+        name: 'Task31',
+      },
+      {
+        url: '/shophome',
+        name: 'Shophome',
+      },
+      {
+        url: '/shoporder',
+        name: 'Shoporder',
+      },
+      {
+        url: '/shopcart',
+        name: 'Shopcart',
+      },
+      {
+        url: '/shopprofile',
+        name: 'Shopprofile',
+      },
+      {
+        url: '/shopreview',
+        name: 'Shopreview',
+      },
+      {
+        url: '/shopcatalog',
+        name: 'Shopcatalog',
+      },
+    ],
+  },
   })
   //                  ↑↑ сюди вводимо JSON дані
 })
@@ -365,7 +471,7 @@ layout: 'basic',
 router.get('/bio', function (req, res) {
   //             ↙ cюди вводимо назву файлу з сontainer
   res.render('bio', {
-    layout: 'bio',
+    layout: 'basik',
 
     name: 'Albert Einstein',
     birthdate: 'March 14, 1879',
@@ -463,7 +569,7 @@ router.get('/bio', function (req, res) {
 router.get('/program', function (req, res) {
   //             ↙ cюди вводимо назву файлу з сontainer
   res.render('program', {
-layout: 'program',
+layout: 'basik',
 
     program: {
       excursion: {
@@ -550,7 +656,7 @@ layout: 'program',
 router.get('/web', function (req, res) {
   //             ↙ cюди вводимо назву файлу з сontainer
   res.render('web', {
-layout:'web',
+layout:'basik',
 
     web: {
       languages: [
