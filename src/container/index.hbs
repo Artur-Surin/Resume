@@ -1,22 +1,13 @@
-<body>
-    {{#with header}}
-    <header>
-        <div>
-            <h1>{{name.firstname}} {{name.lastname}} | {{title}}</h1>
-        </div>
-        <br>
-        <div>
-            <b>{{position}}</b>
-        </div>
-        <br>
-        <div>
-            <em>{{salary}}</em>
-        </div>
-        <br>
-        <div>
-            <address>{{address}}</address>
-        </div>
-        <br>
-        <hr>
-    </header>
-    {{/with}}
+{{!--
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+{{> headerIndex}}
+
+{{> listOfPages}}
+
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML
+--}}
