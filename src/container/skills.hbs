@@ -3,46 +3,31 @@
 в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
 --}}
 
-<div>
-    {{#with main}}
-    <main>
-        <section>
-            {{> title big=true data='All skills'}}
-            <ul>
+<div class="container">
+    <div class="row">
+        {{#with main}}
+        <div class="col-md-4">
+            <h2>Skills</h2>
+            <ul class="list-group">
                 {{#each skills}}
-                <li>
+                <li class="list-group-item{{#if isTop}} active{{/if}}">
                     {{name}}
-
-                    {{#if point includeZero=true}} ({{point}}) {{/if}}
-                    {{#if isTop }} (TOP) {{/if}}
-
-                    {{#unless point includeZero=true}} (не вивчаємо) {{/unless}}
-
-                    {{#unless point }}
-                    {{#if point includeZero=true}}
-                    (вивчаємо)
-                    {{/if}}
-                    {{/unless}}
+                    <span class="badge bg-primary rounded-pill">{{point}}</span>
                 </li>
                 {{/each}}
             </ul>
-        </section>
+        </div>
 
-        <section>
-            {{> title data='My hobbies'}}
-            <ul>
+        <div class="col-md-4">
+            <h2>Hobbies</h2>
+            <ul class="list-group">
                 {{#each hobbies}}
-                <li>
-                    {{name}}
-
-                    {{#if isMain icludeZero=true}} (favourite) {{/if}}
-
-                </li>
+                <li class="list-group-item{{#if isMain}} active{{/if}}">{{name}}</li>
                 {{/each}}
             </ul>
-        </section>
-    </main>
-    {{/with}}
+        </div>
+        {{/with}}
+    </div>
 </div>
 
 {{!--

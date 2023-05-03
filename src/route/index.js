@@ -52,7 +52,7 @@ router.get('/', function (req, res) {
 router.get('/summary', function (req, res) {
   //             ↙ cюди вводимо назву файлу з сontainer
   res.render('summary', {
-    layout: "basic",
+    
 
     page: {
       title: 'Resume | Summary',
@@ -86,7 +86,7 @@ router.get('/skills', function (req, res) {
   //             ↙ cюди вводимо назву файлу з сontainer
   res.render('skills', {
     // ↙ сюди вводимо JSON дані
-
+    
     page: {
       title: 'Resume | Skills',
     },
@@ -201,10 +201,10 @@ router.get('/work', function (req, res) {
   res.render('work', {
     // ↙ сюди вводимо JSON дані
 
-    layout: 'big',
+
 
     page: {
-      title: 'Resume | Education',
+      title: 'Resume | Work',
     },
 
     header,
