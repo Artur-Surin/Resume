@@ -3,10 +3,10 @@
     <h1 class="text-center mb-4">{{title}}</h1>
     <p>{{text}}</p>
     {{/with}}
-    <div class="row">
-        {{#each pages.href}}
+    <div class="row bg-dark">
+        {{#each navi.pages.href}}
         <div class="col-md-2 mb-4">
-            <a href="{{url}}" target="_blank" class="btn btn-block btn-warning">{{name}}</a>
+            <a href="{{url}}" class="btn btn-block btn-warning">{{name}}</a>
         </div>
         {{/each}}
     </div>
