@@ -984,6 +984,7 @@ router.get('/mac', function (req, res) {
     name: 'Apple MacBook Pro',
     description: 'The ultimate notebook for power users',
     price: 1999.99,
+    href: "//jabko.ua/image/catalog/products/2021/01/291604/macbook-pro-16-pouces-concept-1-copy_1563902125-2.jpg",
     category: 'Computers & Tablets',
     features: {
       processor: {
@@ -1047,14 +1048,17 @@ router.get('/mac', function (req, res) {
         {
           name: 'Apple Magic Keyboard',
           price: 99.99,
+          img: "//bigmag.ua/image/catalog/archive/data/000000000009999119/MRMH2.jpg",
         },
         {
           name: 'Apple Magic Mouse 2',
           price: 79.99,
+          img: "//bigmag.ua/image/cache/catalog/new/Aksessuary/Mishki/Apple/MRME2-4-650x540.jpg",
         },
         {
           name: 'USB-C to USB Adapter',
           price: 19.99,
+          img:"//media.4rgos.it/i/Argos/6517566_R_Z001A?w=750&h=440&qlt=70",
         },
       ],
     },
