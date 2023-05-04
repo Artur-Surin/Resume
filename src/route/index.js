@@ -491,6 +491,7 @@ router.get('/bio', function (req, res) {
 
     navi,
 
+    
     name: 'Albert Einstein',
     birthdate: 'March 14, 1879',
     birthplace:

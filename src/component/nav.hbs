@@ -1,9 +1,10 @@
-<section class="bg-warning">
+<section class="bg-dark">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             {{#each navi.pages.href}}
-            <li class="breadcrumb-item active">
-                <a class="breadcrumb-item active text-success text-decoration-none" href="{{url}}">
+            <li>
+                <a class="text-light text-decoration-none fs-4" href="{{url}}"
+                    style="border: 2px solid white; padding: 5px 10px; background-image: linear-gradient(to right, #f34a4a, #faaf0d);">
                     {{name}}
                 </a>
             </li>

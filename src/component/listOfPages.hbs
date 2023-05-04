@@ -1,13 +1,25 @@
 <div class="container my-5">
     {{#with name}}
-    <h1 class="text-center mb-4">{{title}}</h1>
-    <p>{{text}}</p>
-    {{/with}}
-    <div class="row bg-dark">
-        {{#each navi.pages.href}}
-        <div class="col-md-2 mb-4">
-            <a href="{{url}}" class="btn btn-block btn-warning">{{name}}</a>
+    <div class="card mb-5 bg-dark border-light">
+        <div class="card-header display-3 text-center border-light">{{title}}</div>
+        <div class="card-body">
+            <p>{{text}}</p>
         </div>
-        {{/each}}
     </div>
+    {{/with}}
+    <div class="row">
+        <div class="card bg-dark text-center border-light">
+            <div class="card-body">
+                <div class="row">
+                    {{#each navi.pages.href}}
+                    <div class="col-md-3 mb-2">
+                        <a href="{{url}}" class="btn btn-block btn-outline-light btn-neon">{{name}}</a>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 </div>
